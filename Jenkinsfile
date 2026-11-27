@@ -36,7 +36,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t backend-app:latest ./backend/backend'
+                sh 'docker build -t backend-app:latest -f backend/Dockerfile .'
             }
         }
     }
