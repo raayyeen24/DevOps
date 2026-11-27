@@ -57,5 +57,14 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                    docker compose -f /home/vagrant/DevOps-AppGestionDesProjets/docker-compose.yml pull backend
+                    docker compose -f /home/vagrant/DevOps-AppGestionDesProjets/docker-compose.yml up -d --no-deps backend
+                '''
+            }
+        }
     }
 }
